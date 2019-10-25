@@ -1,11 +1,10 @@
 <template>
-  <div class="games-index">
-    <h1>Games Index</h1>
-    <div v-for="game in games">
-      <h2>{{ game.title }}</h2>
+  <div class="tags-show">
+    <h1>Tags Show</h1>
+    <h2>{{ tag["name"] }}</h2>
+    <div v-for="game in tag.games">
+      <p>{{ game["title"] }}</p>
       <img :src="game.image_url" alt="" />
-      <p>{{ game.summary }}</p>
-      <p>Video Url: {{ game.video_url }}</p>
     </div>
   </div>
 </template>
@@ -22,12 +21,12 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      games: []
+      tag: {}
     };
   },
   created: function() {
-    axios.get("/api/games").then(response => {
-      this.games = response.data;
+    axios.get("/api/tags/" + this.$route.params.id).then(response => {
+      this.tag = response.data;
     });
   },
   methods: {}
