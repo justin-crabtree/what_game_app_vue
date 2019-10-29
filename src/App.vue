@@ -13,7 +13,7 @@
       |
       <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       |
-      <router-link v-bind:to="`/users/${user_id}`">Profile</router-link>
+      <router-link v-bind:to="`/users/${user_id}`">{{ username }}</router-link>
     </div>
     <router-view />
   </div>
