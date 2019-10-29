@@ -7,17 +7,38 @@
       |
       <router-link to="/games">Games</router-link>
       |
-      <router-link to="/signup">Signup</router-link>
+      <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       |
-      <router-link to="/users/:id">Profile</router-link>
+      <router-link v-bind:to="`/users/${user_id}`">Profile</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      username: localStorage.getItem("username"),
+      user_id: localStorage.getItem("user_id"),
+      email: localStorage.getItem("email")
+    };
+  },
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+};
+</script>
 
 <style>
 #app {
