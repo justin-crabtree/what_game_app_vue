@@ -8,6 +8,17 @@
       <p>{{ favorite["title"] }}</p>
       <img :src="favorite.image_url" alt="" />
     </div>
+    <form v-on:submit.prevent="submit()">
+      <h1>Edit Profile</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div>
+        <label>Name:</label>
+        <input type="text" class="form-control" v-model="user.name" />
+      </div>
+      <input type="submit" class="btn btn-primary" value="Submit" />
+    </form>
   </div>
 </template>
 
