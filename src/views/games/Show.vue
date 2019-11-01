@@ -3,6 +3,20 @@
     <h1>Game Show</h1>
     <div>
       <h2>{{ game.title }}</h2>
+
+      <div>
+        <button
+          class=""
+          v-on:click="
+            addFavorite();
+            toggleFav();
+          "
+        >
+          Favorite
+          <i v-bind:class=""></i>
+        </button>
+      </div>
+
       <img :src="game.image_url" alt="" />
       <p>{{ game.summary }}</p>
       <p>Video Url: {{ game.video_url }}</p>
@@ -24,6 +38,7 @@ img {
 import axios from "axios";
 
 export default {
+  props: ["is_fav"],
   data: function() {
     return {
       game: {}
@@ -34,6 +49,25 @@ export default {
       this.game = response.data;
     });
   },
-  methods: {}
+  methods: {
+    addFavorite: function() {
+      var params = {
+        game_id: this.game.id
+      };
+      axios
+        .post("/api/favorites/", params)
+        .then(response => {
+          this.favorite = response.data;
+          console.log(response.data);
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+        });
+    },
+    toggleFav: function() {
+      this.$emit("toggleFav", !this.is_fav);
+    }
+  }
 };
 </script>
