@@ -2,10 +2,10 @@
   <div class="games-index">
     <h1>Games Index</h1>
     <div v-for="game in games">
-      <h2>{{ game.title }}</h2>
+      <h2>
+        <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
+      </h2>
       <img :src="game.image_url" alt="" />
-      <p>{{ game.summary }}</p>
-      <p>Video Url: {{ game.video_url }}</p>
     </div>
   </div>
 </template>

@@ -5,16 +5,8 @@
       <h2>{{ game.title }}</h2>
 
       <div>
-        <button
-          class=""
-          v-on:click="
-            addFavorite();
-            toggleFav();
-          "
-        >
-          Favorite
-          <i v-bind:class=""></i>
-        </button>
+        <button class="favorites" v-if="!game.favorite" v-on:click="addFavorite()">Favorite</button>
+        <button class="favorites" v-if="game.favorite" v-on:click="destroyFavorite()">Unfavorite</button>
       </div>
 
       <img :src="game.image_url" alt="" />
@@ -22,7 +14,9 @@
       <p>Video Url: {{ game.video_url }}</p>
       <h2>Tags:</h2>
       <div v-for="tag in game.tags">
-        <p>{{ tag.name }}</p>
+        <p>
+          <router-link v-bind:to="`/tags/${tag.id}`">{{ tag.name }}</router-link>
+        </p>
       </div>
     </div>
   </div>
@@ -38,7 +32,6 @@ img {
 import axios from "axios";
 
 export default {
-  props: ["is_fav"],
   data: function() {
     return {
       game: {}
@@ -47,6 +40,7 @@ export default {
   created: function() {
     axios.get("/api/games/" + this.$route.params.id).then(response => {
       this.game = response.data;
+      console.log(this.game);
     });
   },
   methods: {
@@ -57,16 +51,19 @@ export default {
       axios
         .post("/api/favorites/", params)
         .then(response => {
-          this.favorite = response.data;
           console.log(response.data);
+          this.game.favorite = true;
         })
         .catch(error => {
           this.errors = error.response.data.errors;
           console.log(error.response.data.errors);
         });
     },
-    toggleFav: function() {
-      this.$emit("toggleFav", !this.is_fav);
+    destroyFavorite: function() {
+      axios.delete("/api/favorites/" + this.game.id).then(response => {
+        console.log(response.data);
+        this.game.favorite = false;
+      });
     }
   }
 };

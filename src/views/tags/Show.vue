@@ -3,7 +3,9 @@
     <h1>Tags Show</h1>
     <h2>{{ tag["name"] }}</h2>
     <div v-for="game in tag.games">
-      <p>{{ game["title"] }}</p>
+      <h3>
+        {{ game["title"] }}
+      </h3>
       <img :src="game.image_url" alt="" />
     </div>
   </div>
