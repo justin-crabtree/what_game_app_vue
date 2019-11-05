@@ -31,6 +31,9 @@
       <h2>
         <router-link v-bind:to="`/games/${favorite.id}`">{{ favorite["title"] }}</router-link>
       </h2>
+      <div>
+        <button class="favorites" v-on:click="destroyFavorite(favorite)">Unfavorite</button>
+      </div>
       <img :src="favorite.image_url" alt="" />
     </div>
   </div>
@@ -46,7 +49,7 @@ export default {
     return {
       user: {},
       errors: [],
-      game: []
+      games: []
     };
   },
   created: function() {
@@ -54,17 +57,7 @@ export default {
       .get("/api/users/" + this.$route.params.id)
       .then(response => {
         this.user = response.data;
-        console.log(this.user.favorites);
-      })
-      .catch(error => {
-        this.errors = error.response.data.errors;
-        console.log(error.response.data.errors);
-      });
-    axios
-      .get("/api/games/")
-      .then(response => {
-        this.game = response.data;
-        console.log(this.game);
+        console.log(this.user);
       })
       .catch(error => {
         this.errors = error.response.data.errors;
@@ -107,6 +100,19 @@ export default {
       } else {
         return false;
       }
+    },
+    destroyFavorite: function(favorite) {
+      axios
+        .delete("/api/favorites/" + favorite.id)
+        .then(response => {
+          console.log(response.data);
+          var index = this.user.favorites.indexOf(favorite);
+          this.user.favorites.splice(index, 1);
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+        });
     }
   }
 };

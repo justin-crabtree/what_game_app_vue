@@ -9,6 +9,7 @@ import Signup from "./views/users/Signup.vue";
 import Login from "./views/users/Login.vue";
 import Logout from "./views/users/Logout.vue";
 import Profile from "./views/users/Show.vue";
+import Questionnaire from "./views/Questionnaire";
 
 Vue.use(Router);
 
@@ -60,6 +61,11 @@ export default new Router({
       path: "/users/:id",
       name: "users-show",
       component: Profile
+    },
+    {
+      path: "/questionnaire",
+      name: "questionnaire",
+      component: Questionnaire
     }
   ]
 });

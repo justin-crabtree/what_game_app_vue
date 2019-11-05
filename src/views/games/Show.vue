@@ -39,10 +39,16 @@ export default {
     };
   },
   created: function() {
-    axios.get("/api/games/" + this.$route.params.id).then(response => {
-      this.game = response.data;
-      console.log(this.game);
-    });
+    axios
+      .get("/api/games/" + this.$route.params.id)
+      .then(response => {
+        this.game = response.data;
+        console.log(this.game);
+      })
+      .catch(error => {
+        this.errors = error.response.data.errors;
+        console.log(error.response.data.errors);
+      });
   },
   methods: {
     addFavorite: function() {
