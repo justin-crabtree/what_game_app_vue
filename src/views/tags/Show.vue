@@ -4,7 +4,7 @@
     <h2>{{ tag["name"] }}</h2>
     <div v-for="game in tag.games">
       <h3>
-        {{ game["title"] }}
+        <router-link v-bind:to="`/games/${game.id}`">{{ game["title"] }}</router-link>
       </h3>
       <img :src="game.image_url" alt="" />
     </div>
@@ -27,9 +27,15 @@ export default {
     };
   },
   created: function() {
-    axios.get("/api/tags/" + this.$route.params.id).then(response => {
-      this.tag = response.data;
-    });
+    axios
+      .get("/api/tags/" + this.$route.params.id)
+      .then(response => {
+        this.tag = response.data;
+      })
+      .catch(error => {
+        this.errors = error.response.data.errors;
+        console.log(error.response.data.errors);
+      });
   },
   methods: {}
 };

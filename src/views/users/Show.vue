@@ -24,15 +24,13 @@
         </div>
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
-
-      <div>
-        <button class="btn btn-danger" v-on:click="destroyUser()">Delete Profile</button>
-      </div>
     </div>
 
     <h3>Favorites:</h3>
     <div v-for="favorite in user.favorites">
-      <p>{{ favorite["title"] }}</p>
+      <h2>
+        <router-link v-bind:to="`/games/${favorite.id}`">{{ favorite["title"] }}</router-link>
+      </h2>
       <img :src="favorite.image_url" alt="" />
     </div>
   </div>
@@ -47,13 +45,31 @@ export default {
   data: function() {
     return {
       user: {},
-      errors: []
+      errors: [],
+      game: []
     };
   },
   created: function() {
-    axios.get("/api/users/" + this.$route.params.id).then(response => {
-      this.user = response.data;
-    });
+    axios
+      .get("/api/users/" + this.$route.params.id)
+      .then(response => {
+        this.user = response.data;
+        console.log(this.user.favorites);
+      })
+      .catch(error => {
+        this.errors = error.response.data.errors;
+        console.log(error.response.data.errors);
+      });
+    axios
+      .get("/api/games/")
+      .then(response => {
+        this.game = response.data;
+        console.log(this.game);
+      })
+      .catch(error => {
+        this.errors = error.response.data.errors;
+        console.log(error.response.data.errors);
+      });
   },
   methods: {
     submit: function() {
@@ -74,10 +90,16 @@ export default {
         });
     },
     destroyUser: function() {
-      axios.delete("/api/users/" + this.user.id).then(response => {
-        console.log("Deleted User Profile", response.data);
-        this.$router.push("/logout");
-      });
+      axios
+        .delete("/api/users/" + this.user.id)
+        .then(response => {
+          console.log("Deleted User Profile", response.data);
+          this.$router.push("/logout");
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+        });
     },
     isLoggedIn: function() {
       if (localStorage.getItem("jwt")) {

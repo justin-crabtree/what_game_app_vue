@@ -26,9 +26,15 @@ export default {
     };
   },
   created: function() {
-    axios.get("/api/games").then(response => {
-      this.games = response.data;
-    });
+    axios
+      .get("/api/games")
+      .then(response => {
+        this.games = response.data;
+      })
+      .catch(error => {
+        this.errors = error.response.data.errors;
+        console.log(error.response.data.errors);
+      });
   },
   methods: {}
 };

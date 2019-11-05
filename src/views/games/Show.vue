@@ -34,7 +34,8 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      game: {}
+      game: {},
+      errors: []
     };
   },
   created: function() {
