@@ -10,11 +10,7 @@
   </div>
 </template>
 
-<style>
-img {
-  width: 500px;
-}
-</style>
+<style></style>
 
 <script>
 import axios from "axios";

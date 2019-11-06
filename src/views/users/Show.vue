@@ -24,6 +24,9 @@
         </div>
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
+      <div>
+        <button class="btn btn-danger" v-on:click="destroyUser()">Delete Profile</button>
+      </div>
     </div>
 
     <h3>Favorites:</h3>
