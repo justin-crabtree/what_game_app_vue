@@ -10,6 +10,7 @@ import Login from "./views/users/Login.vue";
 import Logout from "./views/users/Logout.vue";
 import Profile from "./views/users/Show.vue";
 import Questionnaire from "./views/Questionnaire";
+import Results from "./views/Results";
 
 Vue.use(Router);
 
@@ -66,6 +67,11 @@ export default new Router({
       path: "/questionnaire",
       name: "questionnaire",
       component: Questionnaire
+    },
+    {
+      path: "/results",
+      name: "results",
+      component: Results
     }
   ]
 });
