@@ -13,7 +13,7 @@
       |
       <router-link v-bind:to="`/users/${user_id}`">{{ username }}</router-link>
     </div>
-    <router-view />
+    <router-view :key="$route.fullPath"></router-view>
   </div>
 </template>
 

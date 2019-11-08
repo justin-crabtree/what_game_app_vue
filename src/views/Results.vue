@@ -1,6 +1,7 @@
 <template>
   <div class="results">
     <h1>Here's the games you should play based on your answers:</h1>
+    {{ message }}
   </div>
 </template>
 
@@ -9,7 +10,9 @@
 <script>
 export default {
   data: function() {
-    return {};
+    return {
+      message: {}
+    };
   },
   created: function() {},
   methods: {}

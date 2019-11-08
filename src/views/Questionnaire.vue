@@ -14,7 +14,6 @@
             <input type="radio" id="experienced" value="Experienced" v-model="experienceLevel" />
             <label for="experienced">Experienced</label>
           </div>
-          picked: {{ experienceLevel }}
         </div>
 
         <div>
@@ -29,7 +28,6 @@
             <input type="radio" id="long" value="Long (30+ Hours)" v-model="gameLength" />
             <label for="long">Long (30+ Hours)</label>
           </div>
-          length: {{ gameLength }}
         </div>
 
         <div>
@@ -42,7 +40,6 @@
             <input type="radio" id="once" value="One and Done" v-model="replayability" />
             <label for="once">One and Done</label>
           </div>
-          picked: {{ replayability }}
         </div>
 
         <div>
@@ -55,7 +52,6 @@
             <input type="radio" id="gameplay" value="Gameplay" v-model="gameFocus" />
             <label for="gameplay">Gameplay</label>
           </div>
-          picked: {{ gameFocus }}
         </div>
 
         <div>
@@ -68,7 +64,6 @@
             <input type="radio" id="multiplayer" value="Multiplayer/Cooperative" v-model="playerAmount" />
             <label for="multiplayer">Multiplayer/Cooperative</label>
           </div>
-          picked: {{ playerAmount }}
         </div>
 
         <div>
@@ -85,12 +80,11 @@
             <input type="checkbox" id="switch" value="Nintendo Switch" v-model="platforms" />
             <label for="switch">Nintendo Switch</label>
           </div>
-          picked: {{ platforms }}
         </div>
 
         <div>
           <h2>
-            7. What themes are you interested in? (Select all that apply)
+            7. What themes are you interested in? (Select any/all that apply)
           </h2>
           <div>
             <input type="checkbox" id="fantasy" value="Fantasy" v-model="checkedThemes" />
@@ -108,12 +102,11 @@
             <input type="checkbox" id="warfare" value="Warfare" v-model="checkedThemes" />
             <label for="warfare">Warfare</label>
           </div>
-          checkedThemes: {{ checkedThemes }}
         </div>
 
         <div>
           <h2>
-            8. What genres are you interested in? (Select all that apply)
+            8. What genres are you interested in? (Select any/all that apply)
           </h2>
           <div>
             <input type="checkbox" id="shooter" value="Shooter" v-model="checkedGenres" />
@@ -139,12 +132,11 @@
             <input type="checkbox" id="action" value="Action" v-model="checkedGenres" />
             <label for="action">Action</label>
           </div>
-          genres: {{ checkedGenres }}
         </div>
 
         <div>
           <h2>
-            9. What is the highest rating you would play?
+            9. What rating are you looking to play?
           </h2>
           <div>
             <input type="radio" id="e" value="E (Everyone)" v-model="rating" />
@@ -154,7 +146,6 @@
             <input type="radio" id="m" value="M (Mature)" v-model="rating" />
             <label for="m">M (Mature)</label>
           </div>
-          rating: {{ rating }}
         </div>
 
         <div>
@@ -198,14 +189,17 @@ export default {
         checkedGenres: this.checkedGenres,
         rating: this.rating
       };
-      axios
-        .post("/api/questionnaire", params)
-        .then(response => {
-          this.$router.push("/results");
-        })
-        .catch(error => {
-          this.errors = error.response.data.errors;
-        });
+      this.$router.push({ path: "/games", query: params });
+      // axios
+      //   .get("/api/games", { params: params })
+      //   .then(response => {
+      //     console.log(response.data);
+      //     this.$root.resultGames = response.data;
+      //     this.$router.push("/games");
+      //   })
+      //   .catch(error => {
+      //     this.errors = error.response.data.errors;
+      //   });
     }
   }
 };

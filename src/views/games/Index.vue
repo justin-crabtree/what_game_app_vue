@@ -1,6 +1,7 @@
 <template>
   <div class="games-index">
     <h1>Games Index</h1>
+    <!-- root.resultGames -->
     <div v-for="game in games">
       <h2>
         <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
@@ -23,8 +24,9 @@ export default {
   },
   created: function() {
     axios
-      .get("/api/games")
+      .get("/api/games", { params: this.$route.query })
       .then(response => {
+        console.log(this.$route.query);
         this.games = response.data;
       })
       .catch(error => {
