@@ -6,7 +6,7 @@
       <form v-on:submit.prevent="submit()">
         <div>
           <h2>
-            1. Are you a casual or experienced player?
+            Are you a casual or experienced player?
           </h2>
           <div>
             <input type="radio" id="casual" value="Casual" v-model="experienceLevel" />
@@ -18,7 +18,7 @@
 
         <div>
           <h2>
-            2. How long do you want the game to last?
+            How long do you want the game to last?
           </h2>
           <div>
             <input type="radio" id="short" value="Short (0-10 Hours)" v-model="gameLength" />
@@ -32,7 +32,7 @@
 
         <div>
           <h2>
-            3. Do you want a game built to be replayable, or played through once?
+            Do you want a game built to be replayable, or played through once?
           </h2>
           <div>
             <input type="radio" id="replayable" value="Replayable" v-model="replayability" />
@@ -44,7 +44,7 @@
 
         <div>
           <h2>
-            4. Are you more interested in a story or gameplay experience?
+            Are you more interested in a story or gameplay experience?
           </h2>
           <div>
             <input type="radio" id="story" value="Story" v-model="gameFocus" />
@@ -56,7 +56,7 @@
 
         <div>
           <h2>
-            5. Single Player or Multiplayer/Cooperative?
+            Single Player or Multiplayer/Cooperative focus?
           </h2>
           <div>
             <input type="radio" id="singleplayer" value="Singleplayer" v-model="playerAmount" />
@@ -68,7 +68,7 @@
 
         <div>
           <h2>
-            6. What platform do you play on? (Select all that apply)
+            What is the main platform you play on?
           </h2>
           <div>
             <input type="checkbox" id="pc" value="PC" v-model="platforms" />
@@ -84,7 +84,7 @@
 
         <div>
           <h2>
-            7. What themes are you interested in? (Select any/all that apply)
+            What themes are you interested in playing? (Select any/all that apply or none at all)
           </h2>
           <div>
             <input type="checkbox" id="fantasy" value="Fantasy" v-model="checkedThemes" />
@@ -106,7 +106,7 @@
 
         <div>
           <h2>
-            8. What genres are you interested in? (Select any/all that apply)
+            What genres are you interested in playing? (Select any/all that apply or none at all)
           </h2>
           <div>
             <input type="checkbox" id="shooter" value="Shooter" v-model="checkedGenres" />
@@ -136,7 +136,7 @@
 
         <div>
           <h2>
-            9. What rating are you looking to play?
+            What rating seems right for you?
           </h2>
           <div>
             <input type="radio" id="e" value="E (Everyone)" v-model="rating" />
