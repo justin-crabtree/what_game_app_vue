@@ -84,7 +84,7 @@
 
         <div>
           <h2>
-            What ratings would you enjoy?
+            What ratings would you enjoy? (Check all that apply)
           </h2>
           <div>
             <input type="checkbox" id="e" value="E (Everyone)" v-model="checkedRatings" />
@@ -98,7 +98,7 @@
 
         <div>
           <h2>
-            What theme are you interested in playing? (Select one or none at all for a wider selection)
+            What themes are you interested in playing? (Leave blank for a wider selection)
           </h2>
           <div>
             <input type="checkbox" id="fantasy" value="Fantasy" v-model="checkedThemes" />
@@ -120,7 +120,7 @@
 
         <div>
           <h2>
-            What genres are you interested in playing? (Select one or none at all for a wider selection)
+            What genres are you interested in playing? (Leave blank for a wider selection)
           </h2>
           <div>
             <input type="checkbox" id="shooter" value="Shooter" v-model="checkedGenres" />
