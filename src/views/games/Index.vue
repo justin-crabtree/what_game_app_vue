@@ -1,12 +1,22 @@
 <template>
   <div class="games-index">
-    <h1>Games Index</h1>
-    <!-- root.resultGames -->
-    <div v-for="game in games">
-      <h2>
-        <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
-      </h2>
-      <img :src="game.image_url" alt="" />
+    <div id="cards" class="card-columns">
+      <div id="card-container" class="container">
+        <div v-for="game in games" class="mb-4">
+          <div style="width: 330px">
+            <div class="card card-xl mb-4">
+              <a class="card-img card-img-xl">
+                <img class="card-img-top" :src="game.image_url" />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

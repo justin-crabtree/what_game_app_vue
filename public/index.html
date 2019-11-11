@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>what_game_app_vue</title>
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Gameforest Bootstrap Gaming Theme</title>
+    <!-- css: theme -->
+    <link rel="stylesheet" href="/css/theme.min.css" />
   </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but what_game_app_vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+  <body class="fixed-navbar">
+    <div class="site">
+      <div id="app"></div>
+    </div>
+    <!-- end .site -->
+    <!-- js: vendor -->
+    <script src="/js/vendor.js"></script>
+    <script src="/js/theme.min.js"></script>
+    <!-- js: plugins -->
+    <script src="/plugins/parallax/parallax.min.js"></script>
+    <script src="/plugins/easypiechart/jquery.easypiechart.min.js"></script>
+    <script>
+      $(function() {
+        $(".easypiechart").easyPieChart();
+      });
+    </script>
+    <!-- theme settings -->
+    <script>
+      var gameforest = {
+        disqus: "gameforestyakuzieu",
+        facebook: {
+          lang: "en_US",
+          version: "v3.2",
+          id: ""
+        }
+      };
+    </script>
   </body>
 </html>

@@ -18,7 +18,7 @@
 
         <div>
           <h2>
-            How long do you want the game to last?
+            How much time do you want to spend to initially complete the game?
           </h2>
           <div>
             <input type="radio" id="short" value="Short (0-10 Hours)" v-model="gameLength" />
@@ -32,7 +32,7 @@
 
         <div>
           <h2>
-            Do you want a game built to be replayable, or played through once?
+            Do you want a game built to be replayable, or designed for a full experience on your first playthrough?
           </h2>
           <div>
             <input type="radio" id="replayable" value="Replayable" v-model="replayability" />
@@ -71,20 +71,34 @@
             What is the main platform you play on?
           </h2>
           <div>
-            <input type="checkbox" id="pc" value="PC" v-model="platforms" />
+            <input type="radio" id="pc" value="PC" v-model="platforms" />
             <label for="pc">PC</label>
-            <input type="checkbox" id="ps4" value="PS4" v-model="platforms" />
+            <input type="radio" id="ps4" value="PS4" v-model="platforms" />
             <label for="ps4">PS4</label>
-            <input type="checkbox" id="xboxone" value="Xbox One" v-model="platforms" />
+            <input type="radio" id="xboxone" value="Xbox One" v-model="platforms" />
             <label for="xboxone">Xbox One</label>
-            <input type="checkbox" id="switch" value="Nintendo Switch" v-model="platforms" />
+            <input type="radio" id="switch" value="Nintendo Switch" v-model="platforms" />
             <label for="switch">Nintendo Switch</label>
           </div>
         </div>
 
         <div>
           <h2>
-            What themes are you interested in playing? (Select any/all that apply or none at all)
+            What ratings would you enjoy?
+          </h2>
+          <div>
+            <input type="checkbox" id="e" value="E (Everyone)" v-model="checkedRatings" />
+            <label for="e">E (Everyone)</label>
+            <input type="checkbox" id="t" value="T (Teen)" v-model="checkedRatings" />
+            <label for="t">T (Teen)</label>
+            <input type="checkbox" id="m" value="M (Mature)" v-model="checkedRatings" />
+            <label for="m">M (Mature)</label>
+          </div>
+        </div>
+
+        <div>
+          <h2>
+            What theme are you interested in playing? (Select one or none at all for a wider selection)
           </h2>
           <div>
             <input type="checkbox" id="fantasy" value="Fantasy" v-model="checkedThemes" />
@@ -106,7 +120,7 @@
 
         <div>
           <h2>
-            What genres are you interested in playing? (Select any/all that apply or none at all)
+            What genres are you interested in playing? (Select one or none at all for a wider selection)
           </h2>
           <div>
             <input type="checkbox" id="shooter" value="Shooter" v-model="checkedGenres" />
@@ -135,20 +149,6 @@
         </div>
 
         <div>
-          <h2>
-            What rating seems right for you?
-          </h2>
-          <div>
-            <input type="radio" id="e" value="E (Everyone)" v-model="rating" />
-            <label for="e">E (Everyone)</label>
-            <input type="radio" id="t" value="T (Teen)" v-model="rating" />
-            <label for="t">T (Teen)</label>
-            <input type="radio" id="m" value="M (Mature)" v-model="rating" />
-            <label for="m">M (Mature)</label>
-          </div>
-        </div>
-
-        <div>
           <input type="submit" class="btn btn-primary" value="Submit" />
         </div>
       </form>
@@ -170,9 +170,9 @@ export default {
       replayability: "",
       gameFocus: "",
       playerAmount: "",
-      platforms: [],
+      platforms: "",
       checkedGenres: [],
-      rating: ""
+      checkedRatings: []
     };
   },
   created: function() {},
@@ -187,7 +187,7 @@ export default {
         playerAmount: this.playerAmount,
         platforms: this.platforms,
         checkedGenres: this.checkedGenres,
-        rating: this.rating
+        checkedRatings: this.checkedRatings
       };
       this.$router.push({ path: "/games", query: params });
       // axios
