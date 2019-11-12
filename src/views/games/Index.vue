@@ -10,7 +10,9 @@
               </a>
               <div class="card-body">
                 <h5 class="card-title text-center font-size-lg">
-                  <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
+                  <div class="alert-link-primary" role="alert">
+                    <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
+                  </div>
                 </h5>
               </div>
             </div>

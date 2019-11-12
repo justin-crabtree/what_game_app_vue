@@ -14,27 +14,38 @@
           <i class="ya ya-bar"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-          <ul class="nav justify-content-center">
+          <ul class="navbar-nav align-items-center">
             <li class="nav-item">
-              <router-link to="/">Home</router-link>
+              <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <router-link to="/games">Games</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link v-bind:to="`/users/${user_id}`">{{ username }}</router-link>
+              <a class="nav-link" href="/games">Games</a>
             </li>
           </ul>
         </div>
+        <ul class="navbar-nav navbar-right flex-row d-flex align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" v-if="!isLoggedIn()" href="/login">
+              <span class="d-none d-md-inline-block">Login</span>
+              <span class="d-inline-block d-md-none"><i class="ya ya-user"></i></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" v-if="!isLoggedIn()" href="/signup">
+              <span class="d-none d-md-inline-block">Signup</span>
+              <span class="d-inline-block d-md-none"><i class="ya ya-user"></i></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" v-if="isLoggedIn()" href="/logout">
+              <span class="d-none d-md-inline-block">Logout</span>
+              <span class="d-inline-block d-md-none"><i class="ya ya-user"></i></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <router-link v-bind:to="`/users/${user_id}`">{{ username }}</router-link>
+          </li>
+        </ul>
       </div>
     </nav>
     <router-view :key="$route.fullPath"></router-view>
