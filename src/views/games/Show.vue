@@ -1,7 +1,25 @@
 <template>
   <div class="games-show">
-    <h1>Game Show</h1>
-    <div>
+    <div class="container-fluid">
+      <div class="card card-lg">
+        <a class="card-img-md"
+            <img class="card-img" <img :src="game.image_url" alt="" />
+        </a>
+        <div class="card-body">
+          <h1>{{ game.title }}</h1>
+          <p class="text-justify font-size-lg">{{ game.summary }}</p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" :src="game.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <h2>Tags:</h2>
+          <div v-for="tag in game.tags">
+            <p>
+              <router-link v-bind:to="`/tags/${tag.id}`">{{ tag.name }}</router-link>
+            </p>
+          </div>
+        </div>
+      </div>
+
       <h2>{{ game.title }}</h2>
 
       <div>
@@ -21,12 +39,6 @@
     </div>
   </div>
 </template>
-
-<style>
-img {
-  width: 500px;
-}
-</style>
 
 <script>
 import axios from "axios";

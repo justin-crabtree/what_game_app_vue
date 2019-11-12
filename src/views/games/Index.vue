@@ -1,15 +1,15 @@
 <template>
   <div class="games-index">
-    <div id="cards" class="card-columns">
-      <div id="card-container" class="container">
-        <div v-for="game in games" class="mb-4">
+    <div id="cards" class="container">
+      <div id="card-container" class="row">
+        <div v-for="game in games" class="col-mb-4 col mx-2">
           <div style="width: 330px">
-            <div class="card card-xl mb-4">
+            <div class="card">
               <a class="card-img card-img-xl">
                 <img class="card-img-top" :src="game.image_url" />
               </a>
               <div class="card-body">
-                <h5 class="card-title text-center">
+                <h5 class="card-title text-center font-size-lg">
                   <router-link v-bind:to="`/games/${game.id}`">{{ game.title }}</router-link>
                 </h5>
               </div>
