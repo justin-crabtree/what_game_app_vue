@@ -1,71 +1,47 @@
 <template>
   <div class="games-show">
-    <div class="container">
-      <div>
-        <div class="col-lg-4">
-          <div class="card card-default mb-0">
-            <div class="card-body">
-              <div class="widget widget-game mb-0" ya-style="background-color: #263238">
-                <div class="widget-body">
-                  <h3 class="widget-title text-white text-center">{{ game.title }}</h3>
-                  <h6 class="text-center">Tags:</h6>
-                  <a class="badge badge-primary" v-for="tag in game.tags" v-bind:to="`/tags/${tag.id}`">
-                    {{ tag.name }}
-                  </a>
-                  <p class="font-weight-light font-size-md mt-4">{{ game.summary }}</p>
-                  <a
-                    class="btn btn-outline-light btn-block mt-4"
-                    v-if="!game.favorite"
-                    v-on:click="addFavorite()"
-                    role="button"
-                  >
-                    Add to favourites
-                    <i class="ya ya-heart-o"></i>
-                  </a>
-                  <a
-                    class="btn btn-outline-light btn-block mt-4"
-                    v-if="game.favorite"
-                    v-on:click="destroyFavorite()"
-                    role="button"
-                  >
-                    Delete from favourites
-                    <i class="ya ya-heart-o"></i>
-                  </a>
-                </div>
+    <section class="pt-0 py-lg-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="product mb-4 mb-lg-0">
+              <div class="product-img">
+                <img :src="game.image_url" alt="" />
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <img class="card-img" <img :src="game.image_url" alt="" />
-        </div>
-
-        <div>
-          <h1>{{ game.title }}</h1>
-          <div>
-            <button class="favorites" v-if="!game.favorite" v-on:click="addFavorite()">Favorite</button>
-            <button class="favorites" v-if="game.favorite" v-on:click="destroyFavorite()">Unfavorite</button>
-          </div>
-          <p class="text-justify font-size-lg">{{ game.summary }}</p>
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe
-              width="560"
-              height="315"
-              :src="game.video_url"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <h2>Tags:</h2>
-          <div v-for="tag in game.tags">
-            <p>
-              <router-link v-bind:to="`/tags/${tag.id}`">{{ tag.name }}</router-link>
+          <div class="col-lg-6">
+            <div class="mb-4 pb-4 border-bottom-dashed">
+              <h1 class="font-weight-bold">{{ game.title }}</h1>
+              <div class="d-flex align-items-center">
+                <div class="card-body">
+                  <button class="btn btn-danger btn-icon" v-if="!game.favorite" v-on:click="addFavorite()">
+                    <i class="ya ya-heart-o"></i>
+                  </button>
+                  <button class="btn btn-secondary btn-icon" v-else v-on:click="destroyFavorite()">
+                    <i class="ya ya-heart-o"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <p class="mb-4">
+              {{ game.summary }}
             </p>
+            <div class="tags mt-4 mb-4">
+              <router-link v-for="tag in game.tags" v-bind:to="`/tags/${tag.id}`">{{ tag.name }}</router-link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="py-0 py-lg-5">
+      <div class="container">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe :src="game.video_url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 

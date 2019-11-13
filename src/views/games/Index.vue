@@ -11,7 +11,7 @@
           </div>
           <div>
             <img
-              src="https://nintendoeverything.com/wp-content/uploads/pokemon-sword-shield-11.jpg"
+              src="https://gamespot1.cbsistatic.com/uploads/screen_kubrick/1578/15787979/3577586-6669199292-camp_.jpg"
               alt="pokemon-sword-shield"
             />
             <div class="owl-caption owl-caption-bottom">
