@@ -20,6 +20,9 @@
                 </div>
                 <div v-if="isLoggedIn()" class="card-body p-3">
                   <form v-on:submit.prevent="submit()">
+                    <ul>
+                      <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                    </ul>
                     <input type="name" class="form-control mb-2" v-model="user.name" placeholder="Enter email" />
                     <input type="email" class="form-control mb-2" v-model="user.email" placeholder="Enter email" />
                     <input
@@ -37,17 +40,19 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div v-if="isLoggedIn()" class="row">
           <div v-for="favorite in user.favorites" class="col-md-4">
             <div class="card card-sm">
               <a class="card-img card-img-xl" v-bind:to="`/games/${favorite.id}`">
                 <img class="card-img-top" :src="favorite.image_url" />
               </a>
               <div class="card-body">
-                <h5 class="card-title text-xl text-center">
-                  <router-link v-bind:to="`/games/${favorite.id}`">{{ favorite["title"] }}</router-link>
+                <h5 class="card-title text-center">
+                  <router-link class="text-xl" v-bind:to="`/games/${favorite.id}`">
+                    <b>{{ favorite["title"] }}</b>
+                  </router-link>
                 </h5>
-                <button class="favorites" v-on:click="destroyFavorite(favorite)">
+                <button class="btn btn-block btn-danger" v-on:click="destroyFavorite(favorite)">
                   Unfavorite
                   <i class="ya ya-heart-o"></i>
                 </button>

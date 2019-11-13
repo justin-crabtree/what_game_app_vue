@@ -13,17 +13,40 @@
         >
           <i class="ya ya-bar"></i>
         </button>
+        <a class="navbar-brand" href="/">Game Quest</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-          <ul class="navbar-nav align-items-center">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/games">Games</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" v-if="!isLoggedIn()" href="/login">
+                <span class="d-none d-md-inline-block">Login</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" v-if="!isLoggedIn()" href="/signup">
+                <span class="d-none d-md-inline-block">Signup</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" v-bind:to="`/users/${user_id}`">{{ username }}</router-link>
+              <!-- <router-link v-bind:to="`/users/${user_id}`">{{ username }}</router-link> -->
+              <span class="d-inline-block d-md-none">
+                <i class="ya ya-user"></i>
+              </span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" v-if="isLoggedIn()" href="/logout">
+                <span class="d-none d-md-inline-block">Logout</span>
+              </a>
+            </li>
           </ul>
         </div>
-        <ul class="navbar-nav navbar-right flex-row d-flex align-items-center">
+        <!-- <ul class="navbar-nav navbar-right flex-row d-flex align-items-center">
           <li class="nav-item">
             <a class="nav-link" v-if="!isLoggedIn()" href="/login">
               <span class="d-none d-md-inline-block">Login</span>
@@ -43,7 +66,7 @@
             <router-link v-bind:to="`/users/${user_id}`">{{ username }}</router-link>
             <span class="d-inline-block d-md-none"><i class="ya ya-user"></i></span>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </nav>
     <router-view :key="$route.fullPath"></router-view>

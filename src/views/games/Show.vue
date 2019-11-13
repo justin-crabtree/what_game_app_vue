@@ -6,7 +6,7 @@
           <div class="col-lg-6">
             <div class="product mb-4 mb-lg-0">
               <div class="product-img">
-                <img :src="game.image_url" alt="" />
+                <img style="height: 670px" :src="game.image_url" alt="" />
               </div>
             </div>
           </div>
@@ -17,9 +17,11 @@
                 <div class="card-body">
                   <button class="btn btn-danger btn-icon" v-if="!game.favorite" v-on:click="addFavorite()">
                     <i class="ya ya-heart-o"></i>
+                    Favorite
                   </button>
                   <button class="btn btn-secondary btn-icon" v-else v-on:click="destroyFavorite()">
                     <i class="ya ya-heart-o"></i>
+                    Unfavorite
                   </button>
                 </div>
               </div>
