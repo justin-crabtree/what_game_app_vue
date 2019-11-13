@@ -17,8 +17,12 @@
             <!-- <router-link class="btn btn-outline-light btn-rounded btn-lg ml-2" to="/about/">About</router-link> -->
             <div class="social-links mt-5">
               <a href="#" data-toggle="tooltip" title="facebook"><i class="ya ya-facebook"></i></a>
-              <a href="#" data-toggle="tooltip" title="twitter"><i class="ya ya-twitter"></i></a>
-              <a href="#" data-toggle="tooltip" title="twitch"><i class="ya ya-twitch"></i></a>
+              <a href="https://twitter.com/saltybet?lang=en" data-toggle="tooltip" title="twitter">
+                <i class="ya ya-twitter"></i>
+              </a>
+              <a href="https://www.twitch.tv/saltybet" data-toggle="tooltip" title="twitch">
+                <i class="ya ya-twitch"></i>
+              </a>
             </div>
           </div>
         </div>

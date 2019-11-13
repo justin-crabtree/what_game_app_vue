@@ -1,6 +1,60 @@
 <template>
   <div class="users-show">
-    <h1>Profile</h1>
+    <section class="py-5 py-md-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-11 col-md-8 text-center mx-auto mb-4">
+            <i class="fas fa-gamepad ya-xl"></i>
+            <h2 class="font-size-lg">{{ user["name"] }}</h2>
+            <p class="lead">
+              Edit your profile or manage favorites
+            </p>
+            <div class="col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <div class="card mb-0">
+                <div class="card-header">
+                  <h5 class="card-title text-center">Edit</h5>
+                </div>
+                <div v-if="isLoggedIn()" class="card-body p-3">
+                  <form v-on:submit.prevent="submit()">
+                    <input type="name" class="form-control mb-2" v-model="user.name" placeholder="Enter email" />
+                    <input type="email" class="form-control mb-2" v-model="user.email" placeholder="Enter email" />
+                    <input
+                      type="password"
+                      class="form-control mb-3"
+                      v-model="user.password_digest"
+                      placeholder="Password"
+                    />
+                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                  </form>
+                  <div class="separator mt-4"><span>Want to delete your profile?</span></div>
+                  <button class="btn btn-danger" v-on:click="destroyUser()">Delete Profile</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div v-for="favorite in user.favorites" class="col-md-4">
+            <div class="card card-sm">
+              <a class="card-img card-img-xl" v-bind:to="`/games/${favorite.id}`">
+                <img class="card-img-top" :src="favorite.image_url" />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title text-xl text-center">
+                  <router-link v-bind:to="`/games/${favorite.id}`">{{ favorite["title"] }}</router-link>
+                </h5>
+                <button class="favorites" v-on:click="destroyFavorite(favorite)">
+                  Unfavorite
+                  <i class="ya ya-heart-o"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <h1>Profile</h1>
     <h2>{{ user["name"] }}</h2>
     <h2>{{ user["email"] }}</h2>
 
@@ -38,7 +92,7 @@
         <button class="favorites" v-on:click="destroyFavorite(favorite)">Unfavorite</button>
       </div>
       <img :src="favorite.image_url" alt="" />
-    </div>
+    </div> -->
   </div>
 </template>
 

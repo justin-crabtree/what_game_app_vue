@@ -60,9 +60,9 @@
           <div class="col-11 col-md-8 text-center mx-auto mb-4">
             <i class="fas fa-gamepad ya-xl"></i>
             <h2 class="font-size-lg">Game Catalog</h2>
-            <p class="lead">
+            <!-- <p class="lead">
               Here is a collection of all the games used in this app. Click each one to find out more information.
-            </p>
+            </p> -->
           </div>
         </div>
         <div class="row">

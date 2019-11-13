@@ -47,30 +47,8 @@
       </div>
     </nav>
     <router-view :key="$route.fullPath"></router-view>
-    <!-- <footer class="site-footer bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-0 pb-1 pb-md-0">
-            <div class="footer-title">What Game Should You Play?</div>
-            <p>Spend more time playing and less time deciding</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container d-flex flex-column flex-md-row">
-          <div class="order-2 order-md-1">
-            <p class="footer-copyright">Designed and built by Justin Crabtree.</p>
-          </div>
-          <div class="footer-social order-1 order-md-2 ml-md-auto text-center text-md-right">
-            <span class="d-none d-sm-block mb-2">follow me on social media</span>
-            <a href="https://github.com/justin-crabtree" target="_blank" data-toggle="tooltip" title="github">
-              <i class="ya ya-github"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer> -->
-    <footer class="bg-dark">
+
+    <footer class="site-footer bg-dark">
       <div class="footer-bottom">
         <div class="container d-flex flex-column flex-md-row">
           <div class="order-2 order-md-1">
