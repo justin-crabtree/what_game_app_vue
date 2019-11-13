@@ -4,7 +4,11 @@
       <div class="container">
         <div class="row">
           <div class="col-11 col-md-8 text-center mx-auto mb-4">
-            <i class="fas fa-gamepad ya-xl"></i>
+            <img
+              class="avatar-thumbnail avatar-lg"
+              src="https://i.pinimg.com/originals/de/96/a9/de96a9273b16f0300ee828b24f37ace3.jpg"
+              alt=""
+            />
             <h2 class="font-size-lg">{{ user["name"] }}</h2>
             <p class="lead">
               Edit your profile or manage favorites
