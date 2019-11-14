@@ -61,47 +61,22 @@
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </section>
-
-    <!-- <h1>Profile</h1>
-    <h2>{{ user["name"] }}</h2>
-    <h2>{{ user["email"] }}</h2>
-
-    <div v-if="isLoggedIn()">
-      <form v-on:submit.prevent="submit()">
-        <h1>Edit Profile</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div>
-          <label>Name:</label>
-          <input type="text" class="form-control" v-model="user.name" />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="text" class="form-control" v-model="user.email" />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="text" class="form-control" v-model="user.password_digest" />
-        </div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
-      </form>
-      <div>
-        <button class="btn btn-danger" v-on:click="destroyUser()">Delete Profile</button>
-      </div>
-    </div>
-
-    <h3>Favorites:</h3>
-    <div v-for="favorite in user.favorites">
-      <h2>
-        <router-link v-bind:to="`/games/${favorite.id}`">{{ favorite["title"] }}</router-link>
-      </h2>
-      <div>
-        <button class="favorites" v-on:click="destroyFavorite(favorite)">Unfavorite</button>
-      </div>
-      <img :src="favorite.image_url" alt="" />
-    </div> -->
   </div>
 </template>
 
