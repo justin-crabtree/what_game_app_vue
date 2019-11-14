@@ -3,7 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "https://glacial-citadel-75538.herokuapp.com/" : "/";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development" ? "https://git.heroku.com/glacial-citadel-75538.git" : "/";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
