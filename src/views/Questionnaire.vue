@@ -11,6 +11,9 @@
               <div>
                 <div class="form-group form-check custom-control custom-radio">
                   <input
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="You haven't played many games and you're looking for a game that doesn't expect a ton of gaming knowledge"
                     class="custom-control-input"
                     type="radio"
                     id="casual"
@@ -21,6 +24,9 @@
                 </div>
                 <div class="form-group form-check custom-control custom-radio">
                   <input
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="You've played many games and you're looking for a game that can offer a challenge"
                     class="custom-control-input"
                     type="radio"
                     id="experienced"
@@ -38,6 +44,9 @@
                 <div>
                   <div class="form-group form-check custom-control custom-radio">
                     <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Quick to reach the end credits or it consists of multiple short experiences"
                       class="custom-control-input"
                       type="radio"
                       id="short"
@@ -49,6 +58,9 @@
 
                   <div class="form-group form-check custom-control custom-radio">
                     <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Offers a modest length that will keep you entertained but not take up all of your time"
                       class="custom-control-input"
                       type="radio"
                       id="medium"
@@ -60,6 +72,9 @@
 
                   <div class="form-group form-check custom-control custom-radio">
                     <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="The time sink. Long games that offer a ton of content and replayability"
                       class="custom-control-input"
                       type="radio"
                       id="long"
@@ -79,6 +94,9 @@
                 <div>
                   <div class="form-group form-check custom-control custom-radio">
                     <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Games that offer more content the more you complete it or gives you multiple ways to play."
                       class="custom-control-input"
                       type="radio"
                       id="replayable"
@@ -90,6 +108,9 @@
 
                   <div class="form-group form-check custom-control custom-radio">
                     <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Games that don't offer much in replayability and you'd feel satisfied seeing it through to the end the first time through."
                       class="custom-control-input"
                       type="radio"
                       id="once"
@@ -107,12 +128,24 @@
                 </h2>
                 <div>
                   <div class="form-group form-check custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" id="story" value="Story" v-model="gameFocus" />
+                    <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="A game that was designed to be played for the narrative primarily"
+                      class="custom-control-input"
+                      type="radio"
+                      id="story"
+                      value="Story"
+                      v-model="gameFocus"
+                    />
                     <label class="custom-control-label" for="story">Story</label>
                   </div>
 
                   <div class="form-group form-check custom-control custom-radio">
                     <input
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="A game with a larger focus on control and gameplay. These games often don't have a narrative or can be largely ignored."
                       class="custom-control-input"
                       type="radio"
                       id="gameplay"
